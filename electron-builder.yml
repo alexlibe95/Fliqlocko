@@ -1,0 +1,23 @@
+appId: com.fliqlocko.app
+productName: Fliqlocko
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - electron/**/*.js
+  - package.json
+afterPack: build/afterPack.js
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Utility
+  maintainer: "Fliqlocko <fliqlocko@example.com>"
+  executableName: fliqlocko
+  icon: build/icon.png
+deb:
+  depends: []
+appImage:
+  artifactName: ${name}_${version}_${arch}.AppImage
+

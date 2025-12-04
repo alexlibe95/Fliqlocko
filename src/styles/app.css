@@ -1,0 +1,31 @@
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.settings-hint {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  color: rgba(255, 255, 255, 0.3);
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.app-container:hover .settings-hint {
+  opacity: 1;
+}
+
+[data-theme="light"] .settings-hint {
+  color: rgba(0, 0, 0, 0.3);
+}
+

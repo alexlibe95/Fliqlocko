@@ -1,0 +1,33 @@
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg-primary);
+}
+
+.clock-group {
+  display: flex;
+  margin: 0 var(--digit-gap);
+}
+
+.clock-separator {
+  font-family: var(--digit-font-family);
+  font-weight: var(--digit-font-weight);
+  font-size: var(--separator-font-size);
+  color: var(--color-separator);
+  margin: 0 var(--separator-gap);
+  padding-bottom: var(--separator-padding-bottom);
+}
+
+.date-display {
+  position: absolute;
+  bottom: var(--spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5vmin;
+  color: var(--color-text-secondary);
+  font-weight: normal;
+}
+

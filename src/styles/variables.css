@@ -1,0 +1,78 @@
+:root {
+  /* Colors - Dark Mode */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #333333;
+  --color-bg-card: #1a1a1a;
+  --color-text-primary: #cccccc;
+  --color-text-secondary: #888888;
+  --color-separator: #cccccc;
+  --color-shadow: rgba(0, 0, 0, 0.5);
+  --color-split-line: rgba(0, 0, 0, 0.4);
+  
+  /* Colors - Light Mode */
+  --color-bg-primary-light: #f5f5f5;
+  --color-bg-secondary-light: #e0e0e0;
+  --color-bg-card-light: #ffffff;
+  --color-text-primary-light: #333333;
+  --color-text-secondary-light: #666666;
+  --color-separator-light: #333333;
+  --color-shadow-light: rgba(0, 0, 0, 0.2);
+  --color-split-line-light: rgba(0, 0, 0, 0.2);
+  
+  /* Dimensions */
+  --digit-width: 15vmin;
+  --digit-height: 22vmin;
+  --digit-content-height: 200%;
+  --digit-gap: 1vmin;
+  --digit-border-radius: 1.5vmin;
+  --digit-font-size: 18vmin;
+  --digit-font-weight: bold;
+  --digit-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  
+  /* Separator */
+  --separator-font-size: 10vmin;
+  --separator-gap: 1vmin;
+  --separator-padding-bottom: 2vmin;
+  
+  /* Shadows */
+  --shadow-digit: 0 0.5vmin 1.5vmin rgba(0, 0, 0, 0.5);
+  --shadow-panel: 0 4px 20px rgba(0, 0, 0, 0.5);
+  
+  /* Animation */
+  --animation-duration-fast: 300ms;
+  --animation-duration-normal: 600ms;
+  --animation-duration-slow: 900ms;
+  --animation-easing: ease-in-out;
+  
+  /* Perspective */
+  --perspective: 1000px;
+  
+  /* Settings Panel */
+  --panel-width: 300px;
+  --panel-padding: 20px;
+  --panel-border-radius: 10px;
+  --panel-bg: #222222;
+  --panel-text: #ffffff;
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+}
+
+[data-theme="light"] {
+  --color-bg-primary: var(--color-bg-primary-light);
+  --color-bg-secondary: var(--color-bg-secondary-light);
+  --color-bg-card: var(--color-bg-card-light);
+  --color-text-primary: var(--color-text-primary-light);
+  --color-text-secondary: var(--color-text-secondary-light);
+  --color-separator: var(--color-separator-light);
+  --color-shadow: var(--color-shadow-light);
+  --color-split-line: var(--color-split-line-light);
+  --panel-bg: #ffffff;
+  --panel-text: #000000;
+}
+

@@ -1,0 +1,12 @@
+# Additional Linux-specific configuration
+# This ensures sandbox is disabled in production builds
+appId: com.fliqlocko.app
+productName: Fliqlocko
+linux:
+  # Disable sandbox for Linux builds to avoid permission issues
+  # The app doesn't need strict sandboxing for a clock application
+  target:
+    - AppImage
+    - deb
+  category: Utility
+

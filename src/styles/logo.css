@@ -1,0 +1,36 @@
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  display: block;
+  object-fit: contain;
+}
+
+.logo-small .logo-image {
+  width: 24px;
+  height: 24px;
+}
+
+.logo-medium .logo-image {
+  width: 48px;
+  height: 48px;
+}
+
+.logo-large .logo-image {
+  width: 96px;
+  height: 96px;
+}
+
+/* For settings panel header */
+.settings-header .logo-container {
+  margin-right: 10px;
+}
+
+.settings-header .logo-image {
+  width: 32px;
+  height: 32px;
+}
+
