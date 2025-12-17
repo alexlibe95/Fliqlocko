@@ -6,9 +6,10 @@ import { TimeComponents, AppSettings } from '../types';
 interface FlipClockProps {
   time: TimeComponents;
   settings: AppSettings;
+  notificationCountdown: number | null;
 }
 
-export default function FlipClock({ time, settings }: FlipClockProps) {
+export default function FlipClock({ time, settings, notificationCountdown }: FlipClockProps) {
   const digitValues = useMemo(() => {
     const formatNumber = (num: number): string => {
       return String(num).padStart(2, '0');
@@ -90,6 +91,11 @@ export default function FlipClock({ time, settings }: FlipClockProps) {
         </>
       )}
       
+      {notificationCountdown !== null && (
+        <div className="notification-countdown">
+          {Math.floor(notificationCountdown / 60)}:{(notificationCountdown % 60).toString().padStart(2, '0')}
+        </div>
+      )}
       {dateString && (
         <div className="date-display">{dateString}</div>
       )}

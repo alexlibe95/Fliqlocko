@@ -4,12 +4,12 @@ import { AppSettings } from '../types';
 
 interface SettingsPanelProps {
   settings: AppSettings;
-  onSettingChange: (key: keyof AppSettings, value: any) => void;
+  onSettingChange: (key: keyof AppSettings, value: AppSettings[keyof AppSettings]) => void;
   onClose: () => void;
 }
 
 export default function SettingsPanel({ settings, onSettingChange, onClose }: SettingsPanelProps) {
-  const handleChange = (key: keyof AppSettings, value: any) => {
+  const handleChange = (key: keyof AppSettings, value: AppSettings[keyof AppSettings]) => {
     onSettingChange(key, value);
   };
 
@@ -157,6 +157,29 @@ export default function SettingsPanel({ settings, onSettingChange, onClose }: Se
             onChange={(e) => handleChange('scale', parseFloat(e.target.value))} 
           />
         </div>
+
+        <div className="setting-item">
+          <label>Sound Notifications</label>
+          <input 
+            type="checkbox" 
+            checked={settings.soundNotificationEnabled} 
+            onChange={(e) => handleChange('soundNotificationEnabled', e.target.checked)} 
+          />
+        </div>
+
+        {settings.soundNotificationEnabled && (
+          <div className="setting-item">
+            <label>Notification Interval ({settings.soundNotificationInterval} min)</label>
+            <input 
+              type="range" 
+              min="1" 
+              max="60" 
+              step="1" 
+              value={settings.soundNotificationInterval} 
+              onChange={(e) => handleChange('soundNotificationInterval', parseInt(e.target.value, 10))} 
+            />
+          </div>
+        )}
 
         <div className="shortcuts-panel">
           <h3>Keyboard Shortcuts</h3>

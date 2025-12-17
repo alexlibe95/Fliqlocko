@@ -21,6 +21,18 @@
   padding-bottom: var(--separator-padding-bottom);
 }
 
+.notification-countdown {
+  position: absolute;
+  bottom: calc(var(--spacing-xl) + 2.5vmin);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2vmin;
+  color: var(--color-text-secondary);
+  font-weight: normal;
+  opacity: 0.7;
+  font-family: monospace;
+}
+
 .date-display {
   position: absolute;
   bottom: var(--spacing-xl);

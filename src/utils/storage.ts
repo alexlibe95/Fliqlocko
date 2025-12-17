@@ -12,6 +12,8 @@ const defaultSettings: AppSettings = {
   randomizeTiming: false,
   brightness: 1.0,
   scale: 1.0,
+  soundNotificationEnabled: false,
+  soundNotificationInterval: 5, // default 5 minutes
 };
 
 export function loadSettings(): AppSettings {

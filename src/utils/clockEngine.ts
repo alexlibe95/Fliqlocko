@@ -7,6 +7,9 @@ export class ClockEngine {
   private isFocused: boolean = true;
   private lastDisplayedSecond: number = -1;
   private listeners: Set<(time: Date) => void> = new Set();
+  private visibilityHandler: (() => void) | null = null;
+  private focusHandler: (() => void) | null = null;
+  private blurHandler: (() => void) | null = null;
 
   constructor() {
     this.setupWindowListeners();
@@ -39,7 +42,7 @@ export class ClockEngine {
 
   getTimeComponents(is24Hour: boolean): TimeComponents {
     const date = new Date(this.timeReference);
-    let hours = date.getHours();
+    const hours = date.getHours();
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
 
@@ -106,19 +109,22 @@ export class ClockEngine {
 
   private setupWindowListeners(): void {
     // Visibility change
-    document.addEventListener('visibilitychange', () => {
+    this.visibilityHandler = () => {
       const isVisible = !document.hidden;
       this.handleFocusChange(isVisible);
-    });
+    };
+    document.addEventListener('visibilitychange', this.visibilityHandler);
 
     // Focus/blur
-    window.addEventListener('focus', () => {
+    this.focusHandler = () => {
       this.handleFocusChange(true);
-    });
+    };
+    window.addEventListener('focus', this.focusHandler);
 
-    window.addEventListener('blur', () => {
+    this.blurHandler = () => {
       this.handleFocusChange(false);
-    });
+    };
+    window.addEventListener('blur', this.blurHandler);
   }
 
   private handleFocusChange(focused: boolean): void {
@@ -152,6 +158,22 @@ export class ClockEngine {
     if (this.rafId !== null) {
       cancelAnimationFrame(this.rafId);
       this.rafId = null;
+    }
+    
+    // Remove event listeners to prevent memory leaks
+    if (this.visibilityHandler) {
+      document.removeEventListener('visibilitychange', this.visibilityHandler);
+      this.visibilityHandler = null;
+    }
+    
+    if (this.focusHandler) {
+      window.removeEventListener('focus', this.focusHandler);
+      this.focusHandler = null;
+    }
+    
+    if (this.blurHandler) {
+      window.removeEventListener('blur', this.blurHandler);
+      this.blurHandler = null;
     }
     
     this.listeners.clear();

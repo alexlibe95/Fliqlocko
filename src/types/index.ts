@@ -15,6 +15,8 @@ export interface AppSettings {
   randomizeTiming: boolean;
   brightness: number;
   scale: number;
+  soundNotificationEnabled: boolean;
+  soundNotificationInterval: number; // in minutes
 }
 
 export interface StoredSettings {
